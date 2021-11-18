@@ -15,7 +15,7 @@ import static com.nain.securerealmdb.Utils.encodeHexString;
 public class RealmEncryptionKeyProvider {
 
     private static final String REALM_ENCRYPTION_KEY_PREFERENCE = "realm_encryption_key_preference";
-    private static final int KEY_SIZE = 256; // 512 bits or 64 bytes
+    private static final int KEY_SIZE = 256; // 256 bits or 32 bytes
     private SecureKeyProvider secureKeyProvider;
 
     public RealmEncryptionKeyProvider(Context context) {
