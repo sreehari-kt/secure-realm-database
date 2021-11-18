@@ -35,9 +35,8 @@ public class SecureKeyProvider {
     /**
      * This method provide secure encryption key
      *
-     * @param keySize (bit)
+     * @param keySize        (bit)
      * @param preferencesKey
-     *
      * @return key
      */
     public byte[] getSecureKey(int keySize, String preferencesKey) {
@@ -65,10 +64,16 @@ public class SecureKeyProvider {
         }
         keyGenerator.init(keySize, new SecureRandom());
         byte[] key = keyGenerator.generateKey().getEncoded();
+        byte[] key2 = keyGenerator.generateKey().getEncoded();
 
-        saveSecureKey(key, preferencesKey);
+        byte[] combined = new byte[key.length + key2.length];
 
-        return key;
+        System.arraycopy(key, 0, combined, 0, key.length);
+        System.arraycopy(key2, 0, combined, key.length, key2.length);
+
+        saveSecureKey(combined, preferencesKey);
+
+        return combined;
     }
 
     private SharedPreferences getSharedPreference() {
