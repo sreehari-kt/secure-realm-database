@@ -22,7 +22,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.julkar-nain:secure-realm-database:v1.0-alpha'
+	        implementation 'com.github.sreehari-kt:secure-realm-database:v1.0-alpha-02'
 	}
   
 ## Usage
